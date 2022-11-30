@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Currículo</title>
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<div id="main" class="main">
+		<div id="top-section" class="top-section">
+			<img id="foto" src="Enya_Oliveira_foto.JPG">
+			<p class="p1">ENYA <span>OLIVEIRA</span></p>
+			<p id="curso" class="p2">Cursando engenharia de Software</p>
+		</div>
+
+		<div class="col-div-4">
+			<div class="content-box" style="padding-left: 40px;">
+
+			<p class="head">Sobre mim</p>
+			<p class="p3">Telefone: (77)88888-8888</p>
+			<p class="p3">email: enya@mail.com</p>
+			<p class="p3">Endereço: Rua MMDC, 80, SP, Brasil</p>
+
+			<br/>
+			<p class="head">Skills</p>
+			<ul class="skills">
+				<li><span>HTML básico</span></li>
+				<li><span>CSS básico</span></li>
+				<li><span>JavaScript</span></li>
+				<li><span>GDScript intermediário</span></li>
+
+			</ul>
+
+			<br/>
+
+			<p class="head">Idiomas</p>
+			<p class="p3">Português fluente/nativo</p>
+			<p class="p3">Inglês avançado/fluente</p>
+			</div>
+		</div>
+
+		<div class="line"></div>
+		<div class="col-div-8">
+			<div class="content-box">
+			<p class="head">Perfil</p>
+			<p class="p3" style="font-size: 14px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/>
+
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+			<br/>
+			<p class="head">Experiência</p>
+
+			<p>LOREM IPSUM (2018 - ATUALMENTE)</p>
+			<p class="p-4">
+			Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Printer Took A Galley Of Type And Scrambled It To Make A Type Specimen Book.</p>
+
+			<br/>
+
+			<p class="head">Educação</p>
+			<p class="p-4" >BACHARELADO</p>
+			<p class="p-4" >PÓS-GRADUAÇÃO</p>
+
+			</div>
+		</div>
+
+	</div>
+		<br/>
+		<script>
+			$(document).ready(function(){
+				$("#foto").click(function(){
+					$("#foto").attr("src", "Image 2022-11-30 at 00.57.32.jpeg");
+				 });
+		
+				$("#curso").hover(function(){
+					$("#curso").hide();
+				 });
+			$("#top-section").dblclick(function(){
+				$(this).css("background-color", "#4682B4")
+			})
+			});
+
+			  </script>
+</body>
+</html>
