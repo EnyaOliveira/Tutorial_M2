@@ -264,5 +264,73 @@ const express = require('express');
     console.log(`Servidor rodando em http://${hostname}:${port}/`);
     });
 
+///////////////////////////////////////////////////////////////////////
 
+ // Insere um registro (é o C do CRUD - Create)
+ app.post('/insereformacao', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    sql = "INSERT INTO formacao (graduacao, instituicao, comeco, termino) VALUES ('" + req.body.graduacao + "', " + req.body.instituicao + ", " + req.body.comeco + ", " + req.body.termino + ")";
+    console.log(sql);
+    db.run(sql, [],  err => {
+        if (err) {
+            throw err;
+        }
+        
+    });
+    res.write('<p> FORMAÇÃO INSERIDA COM SUCESSO!</p><href="/">VOLTAR</a>');
+    db.close(); // Fecha o banco
+    res.end();
+});
+
+  // Monta o formulário para o update (é o U do CRUD - Update)
+  app.get('/atualizaformacao', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); 
+    sql = "SELECT * FROM formacao WHERE formacaoId="+ req.query.formacaoId;
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.all(sql, [],  (err, rows ) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// Atualiza um registro (é o U do CRUD - Update)
+app.post('/atualizaFormacao', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); 
+    sql = "UPDATE formacao SET graduacao='" + req.body.graduacao + "', instituicao = '" + req.body.instituicao + "' + comeco='" + req.body.comeco + "' WHERE perfilId='" + req.body.perfilId + "' termino='" + req.body.termino + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [],  err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    res.write('<p>FORMAÇÃO ATUALIZADA COM SUCESSO!</p><a href="/">VOLTAR</a>');
+    db.close(); // Fecha o banco
+});
+
+// Exclui um registro (é o D do CRUD - Delete)
+app.get('/removeformacao', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); 
+    sql = "DELETE FROM formacao WHERE fromacaolId='" + req.query.fromacaoId + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [],  err => {
+        if (err) {
+            throw err;
+        }
+        res.write('<p>FORMAÇÃO REMOVIDA COM SUCESSO!</p><a href="/">VOLTAR</a>');
+        res.end();
+    });
+    db.close(); // Fecha o banco
+});
     

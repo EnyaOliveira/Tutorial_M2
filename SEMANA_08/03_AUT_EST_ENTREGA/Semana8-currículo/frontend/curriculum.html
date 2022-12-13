@@ -64,7 +64,12 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p
 
 			<div id="clique">
 				<button onclick="taylor()">　Aperta o botão, por favor!　</button>
-				</div>
+				</div><br>
+
+				<div class="novoCurso" id="novoCurso">
+					<button id="button1" class="button1"><a href="novoCurso.html">Adicionar curso</a></button>
+					<h2 class="titulo5">Cursos</h2>
+					<div class="skills" id="skills">
 	</div>
 		<br/>
 		<script>
@@ -91,23 +96,6 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p
 }
 
 	 </script>
-
-	<script>
-		const urlFormacao = "/formacao";
-		const divFormacao = document.getElementById("formacao");
-  
-		fetch(urlFormacao)//faz a requisição
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				let saida = '';
-				let formacao= data;
-				formacao.map(function (formacao) {//map é um método que percorre o array
-				  saida += '<h5 class="formacao">' + `${formacao.inicioefim}` + '</h5><h4 class="formacao">' + `${formacao.graduacao}` + '</h4><h4 class="formacao">' + `${formacao.descricao}` + '</h4><a href="/removerFormacao?id=' + `${formacao.id}` + '">Excluir</a> | <a href="/atualizarFormacao.html?' + `${formacao.id}` + '">Editar</a><br><br>'  
-				});
-				divFormacao.innerHTML = saida;
-			})
-	</script>
+	 
 </body>
 </html>
