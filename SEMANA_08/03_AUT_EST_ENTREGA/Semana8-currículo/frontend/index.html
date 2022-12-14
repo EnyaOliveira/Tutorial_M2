@@ -10,7 +10,7 @@
 
 	<div id="main" class="main">
 		<div id="top-section" class="top-section">
-			<img id="foto" src="Enya_Oliveira_foto.JPG">
+			<img id="foto" src="Enya_Oliveira (16).JPG">
 			<p class="p1">ENYA <span>OLIVEIRA</span></p>
 			<p id="curso" class="p2">Cursando engenharia de Software</p>
 		</div>
@@ -30,7 +30,7 @@
 				<li><span>CSS básico</span></li>
 				<li><span>JavaScript</span></li>
 				<li><span>GDScript intermediário</span></li>
-				<button id="button4" class="button4"><a href="">Adicionar uma habilidade</a></button>
+				<!--<button id="button4" class="button4"><a href="">Adicionar uma habilidade</a></button>-->
 
 			</ul>
 
@@ -39,7 +39,7 @@
 			<p class="head">Idiomas</p>
 			<p class="p3">Português fluente/nativo</p>
 			<p class="p3">Inglês avançado/fluente</p>
-			<button id="button3" class="button3"><a href="">Adicionar uma idioma</a></button>
+			<!--<button id="button3" class="button3"><a href="">Adicionar uma idioma</a></button>-->
 			</div>
 		</div>
 
@@ -55,17 +55,19 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p
 
 			<p>LOREM IPSUM (2018 - ATUALMENTE)</p>
 			<p class="p-4">
-			Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been The Industry's Standard Dummy Text Ever Since The 1500s, When An Unknown Printer Took A Galley Of Type And Scrambled It To Make A Type Specimen Book.</p>
-			<button id="button2" class="button2"><a href="">Adicionar uma experiência</a></button>
+			<!--<button id="button2" class="button2"><a href="">Adicionar uma experiência</a></button>-->
 
 			<br/>
 
 			<p class="head">Graduação</p>
+		<div id="grad">
 			<p class="p-4" >BACHARELADO, 2015 - 2019</p>
 			<p class="p-4" >PÓS-GRADUAÇÃO, 2020 - atualmente</p>
 			<button id="button1" class="button1"><a href="formacao.html">Adicionar uma graduação</a></button><br>
-			<button id="button1" class="button1"><a href="formacaoUpdate.html">Atualizar graduação</a></button>
-			<div class="">
+			<!--<button id="button1" class="button1"><a href="formacaoUpdate.html">Atualizar graduação</a></button>-->
+			<!--<div class="">-->
+		</div>
+
 			</div><br> 
 
 			<div id="clique">
@@ -100,6 +102,24 @@ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p
   	xhttp.open("GET", "https://taylorswiftapi.onrender.com/get?song=");
   	xhttp.send();
 }
+</script>
+<script>
+    const urlformacao = "/leiaformacao";
+    const divFormacao = document.getElementById("grad");
+
+        fetch(urlformacao)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let saida = '';
+                let formacao = data;
+                formacao.map(function (formacao) {
+                  saida += '<p class="p-4" >' + `${formacao.graduacao}`+',&nbsp'+ `${formacao.comeco}` +'-&nbsp'+ `${formacao.termino}` + '<br>' + '<button id="button1" class="button1"><a href="formacao.html">Adicionar uma graduação</a></button><br></button>'  
+                });
+                divFormacao.innerHTML = saida;
+            })
+
 
 	 </script>
 	 
