@@ -50,5 +50,10 @@
             });
         }
     }
+  
+    let form = document.getElementById("formacao");
+            let forma = +window.location.search.replace('?','');
+            console.log(forma);
+            form.action = '/atualizaFormacao?id='+ forma;
     
 </script>
