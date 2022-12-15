@@ -3,19 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <div class="main">
         <h2 id="valor3">Impressão maluca</h2>
-        <label> Texto: <input type="text" oninput="maluca()" id="textoImpressao"></label>
+        <label for="vf"> Escolha uma palavra ou frase:</label> <input name="ml" type="text"; id="ml">
+        <br/>
+        <button onclick="maluca()"> Aperte o botão! </button>
         <br><br>
-        <div id="resultadoValor" style="text-align:left;"></div>
+        <div id="resultado"></div>
     </div>
-</body>
 
-<script src="script.js"></script>
+    <script>
+        
+    function maluca() {
+        var impressao = document.getElementById('ml').value;
+        var resultado = document.getElementById('resultado');
+        resultado.innerHTML = '';
+    
+        for (let i = 0; i < impressao.length; i++) {
+            resultado.innerHTML += `${impressao[i]} <br/>`;
+            for (let k = -1; k < i; k++) {
+                resultado.innerHTML += 'ㅤ';
+            }
+        }
+    }
+
+</script>
+
+</body>
 
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <title>Document</title>
 </head>
@@ -11,14 +12,37 @@
     <div>
         <main>
             <h2 id="valor2">Conversão decimal-binário</h2>
-            <input id="binario1" type="number" placeholder="Digite um número">
-            <button onclick="binario();" class="Resultado-binario1">Resultado</button>
-            <div id="resultado">
+            <form method="dialog">
+            <input id="binarioIn" type="text" placeholder="Digite um número">
+            <button onclick="binario();" class="Resultado-binarioIn">Resultado</button>
+        </form>
+            <div id="resultado"></div>
         </main>
     </div>
 
+    <script>
+
+function binario() {
+    
+    let valor = Number($('#binarioIn').val());
+    const divresultado = $("#resultado");
+
+    let binario = "";
+    let numero = Math.pow(2, 100);
+    for(; numero >= 1; numero = numero / 2){
+        if(valor >= numero){
+            binario = `${binario}1`;
+            valor = valor - numero;
+        }else {
+            if(binario.length>=1){
+                binario = `${binario}0`;
+            }
+        }
+    }
+
+    divresultado.html(binario);
+}
+
+    </script>
 </body>
-
-<script src="script.js"></script>
-
 </html>

@@ -22,10 +22,6 @@ function VpVf(valor) {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function juros2() {
-    console.log('dd')
-}
-
 function juros() {
     console.log('aa')
     const capital = $('.form2 #capital').val();
@@ -41,33 +37,30 @@ function juros() {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 function maluca() {
-    const texto = $('.form3 #texto').val();
+    var impressao = document.getElementById('ml').value;
+    var resultado = document.getElementById('resultado');
+    resultado.innerHTML = '';
 
-    const divResposta = $(".form3 .resposta");
-
-    divResposta.html(texto.split('').map((letter, index) => {
-        let spaces = "";
-        for(let i = 0; i<index; i++){
-            spaces = spaces.concat("&nbsp;&nbsp;");
+    for (let i = 0; i < texto.length; i++) {
+        resultado.innerHTML += `${impressao[i]} <br/>`;
+        for (let k = -1; k < i; k++) {
+            resultado.innerHTML += 'ㅤ';
         }
-
-        return `${spaces}${letter}<br>`
-    }).join(""))
-
+    }
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 function binario() {
-    let number = Number($('.form4 #number').val());
+    let valor = Number($('.form4 #number').val());
     const divResposta = $(".form4 .resposta");
 
     let binario = "";
-    let currentBase = Math.pow(2, 100);
-    for(currentBase; currentBase >= 1; currentBase = currentBase / 2){
-        if(number >= currentBase){
+    let numero = Math.pow(2, 100);
+    for(; numero >= 1; numero = numero / 2){
+        if(valor >= numero){
             binario = `${binario}1`;
-            number = number - currentBase;
+            valor = valor - numero;
         }else {
             if(binario.length>=1){
                 binario = `${binario}0`;
@@ -76,6 +69,5 @@ function binario() {
     }
 
     divResposta.html(binario);
-
 }
 }
