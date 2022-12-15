@@ -4,16 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1> Tabuada </h1>
-    <form>
-    Escolha o número: <input id="num" type="number"><br>
-    Quer começar a multiplicação por qual número?<input id="primeiro" type="number"><br>
-    Agora um número para pararmos a conta:<input id="ultimo" type="number"><br>
-    <button type="button" id="botao" onclick="VF();">Encontre seu resultado</button>
-    </form>
+    <div class="main">
+        <h1> Juros </h1>
+        <label> Taxa
+            <select id="selecionarTaxa">
+                <option value="1">anual</option>
+                <option value="12">mensal</option>
+                <option value="360">diária</option>
+            </select> Porcentagem: <input type="number" id="taxa"> </label>
+        <br><br>
+        <label> Tempo em:
+            <select id="selecionarPeriodo">
+                <option value="1">anos</option>
+                <option value="12">meses</option>
+                <option value="360">dias</option>
+            </select>: <input type="number" id="tempo"></label>
+        <br><br>
+        <label> Capital: <input type="number" id="capital"></label>
+        <br><br>
+        <button onclick="juros()"> Calcular Juros e Montante </button>
+        <br><br>
+        
+        <div id="resultado"></div>
+
+    </div>
 
 </body>
+
 </html>

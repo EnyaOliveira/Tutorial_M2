@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
     <title>Document</title>
 </head>
 <body>
+    <div class="main">
+        <h1> Valor presente e valor futuro </h1>
+        <label> Taxa mensal: <input type="number" id="taxa"> </label>
+        <br><br>
+        <label> Tempo da aplicação em meses: <input type="number" id="tempo"></label>
+        <br><br>
+        <label> Valor presente: <input type="number" id="VP"></label>
+        <br>
+        <button onclick="('VF')"> Calcular Valor Futuro </button>
+        <br><br>
+        <label> Valor Futuro: <input type="number" id="VF"></label>
+        <br />
+        <button onclick="('VP')"> Calcular Valor presente </button>
+        <br><br>
 
-    <h1> Valor presente e valor futuro </h1>
-    <form>
-    Para calcular o valor futuro, quantos meses durará o processo?: <input id="num" type="number"><br>
-    Quer começar a multiplicação por qual número?<input id="primeiro" type="number"><br>
-    Agora um número para pararmos a conta:<input id="ultimo" type="number"><br>
-    <button type="button" id="botao" onclick="VP();">Encontre seu resultado</button>
+        <div id="resultado"></div>
+    </div>
 
-    </form>
+  
 
 </body>
+
+<script src="script.js"></script>
+<!--document.getElementById('resultado').innerHTML+= valor + 'X' + i+ '=' + resultado + '<br>';}-->
+
 </html>
